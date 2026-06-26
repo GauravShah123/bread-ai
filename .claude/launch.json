@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "bread-ai",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "4200", "/Users/gauravshah/Stupid Websites/bread-ai"],
+      "port": 4200
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — AI for Bread</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍞</text></svg>">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">AI <span>for Bread</span></a>
+  <ul class="nav-links">
+    <li><a href="product.html">Product</a></li>
+    <li><a href="pricing.html" style="color: var(--orange);">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    
+    <li><a href="https://uwblueprint.org/build" class="nav-cta">Join Our Team</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-badge">💸 We spent a long time on this page</div>
+  <h1>Pricing</h1>
+  <p>We have three tiers. We named them after bread types, because of course we did. All pricing is hypothetical as we are pre-revenue, but we've thought very carefully about what we would charge if anyone were paying us, which they are not, but they could be, and hopefully will be, soon.</p>
+
+  <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; font-family: Arial; font-size: 0.9rem; color: var(--gray); align-items: center;">
+    <span>Monthly</span>
+    <div onclick="toggleBilling()" id="billing-toggle" style="width: 48px; height: 26px; background: var(--orange); border-radius: 13px; cursor: pointer; position: relative;">
+      <div id="toggle-dot" style="width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.2s;"></div>
+    </div>
+    <span>Annual <span style="background: rgba(212,105,30,0.15); color: var(--orange-dark); padding: 0.1rem 0.5rem; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">Save 20%*</span></span>
+  </div>
+  <p style="font-family: Arial; font-size: 0.7rem; color: #9CA3AF; margin-top: 0.75rem;">*20% off of what you'd pay monthly, which is $0 either way because we have no billing infrastructure yet. But the intent is there.</p>
+</div>
+
+<!-- PRICING CARDS -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="pricing-name">Sourdough</div>
+        <p style="font-family: Arial; font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem; font-style: italic;">For hobbyist home bakers who want to feel like they're doing something important.</p>
+        <div class="pricing-price" id="price-starter">$29</div>
+        <div class="pricing-period">per month / billed monthly / to an account we haven't set up</div>
+        <ul class="pricing-features">
+          <li>Up to 3 loaves per month</li>
+          <li>Basic BIS score (just the number, no explanation)</li>
+          <li>Crust sentiment: happy or sad only (we're still training "conflicted")</li>
+          <li>Staleness prediction (it will say Thursday)</li>
+          <li>1 bread personality type per month</li>
+          <li>14 push notifications per bake cycle</li>
+          <li>Email support (Chad checks it Tuesdays and when he can't sleep)</li>
+        </ul>
+        <a href="index.html#waitlist" class="btn btn-outline" style="width: 100%; text-align: center; display: block;">Start Free Trial</a>
+        <p style="font-family: Arial; font-size: 0.7rem; color: var(--gray); margin-top: 0.75rem; text-align: center;">14-day free trial. No credit card required because we don't have a payment processor yet. We are looking into Stripe.</p>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">MOST POPULAR (among our 2 beta users)</div>
+        <div class="pricing-name">Baguette</div>
+        <p style="font-family: Arial; font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem; font-style: italic;">For serious bakers who want the full picture, including the parts that don't make sense.</p>
+        <div class="pricing-price" id="price-pro">$149</div>
+        <div class="pricing-period">per month / billed monthly / trust us</div>
+        <ul class="pricing-features">
+          <li>Unlimited loaves (we mean this)</li>
+          <li>Full 847-variable BIS with breakdown</li>
+          <li>7-emotion crust sentiment ("conflicted" is in beta)</li>
+          <li>3D crumb topology visualization (takes 40 seconds; looks incredible; not useful)</li>
+          <li>SmartKnife™ haptic integration (knife sold separately, $799)</li>
+          <li>Slack alerts ("Your baguette is feeling guarded")</li>
+          <li>Weekly Bread Personality Reports (your bread is an INFJ)</li>
+          <li>Staleness prediction (Thursday)</li>
+          <li>Priority support (Mondays and Tuesdays, sometimes Wednesdays)</li>
+        </ul>
+        <a href="index.html#waitlist" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Get Started</a>
+        <p style="font-family: Arial; font-size: 0.7rem; color: var(--gray); margin-top: 0.75rem; text-align: center;">Our two beta users are our mothers. They have not complained. We consider this a strong product-market fit signal.</p>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <div class="pricing-name">Pain de Campagne</div>
+        <p style="font-family: Arial; font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem; font-style: italic;">For industrial bakeries. We will get on a call. Chad will bring slides. There will be bread.</p>
+        <div class="pricing-price">Let's Talk</div>
+        <div class="pricing-period">contact us / we love meetings / we are very available</div>
+        <ul class="pricing-features">
+          <li>Everything in Baguette</li>
+          <li>Multi-bakery deployment (we think this is possible)</li>
+          <li>Custom model fine-tuning on your bread specifically</li>
+          <li>Dedicated Bread Success Manager (this will be Chad)</li>
+          <li>SLA: 99.9% uptime (we're on AWS, so probably fine)</li>
+          <li>On-site SmartKnife™ installation (Dmitri will come in person)</li>
+          <li>Your loaf gets a name in our production database</li>
+          <li>Quarterly Bread Intelligence Business Review</li>
+          <li>One (1) signed photo of Leviticus, our sourdough starter</li>
+        </ul>
+        <a href="mailto:enterprise@bread-ai.online" class="btn btn-outline" style="width: 100%; text-align: center; display: block;">Email Chad Directly</a>
+        <p style="font-family: Arial; font-size: 0.7rem; color: var(--gray); margin-top: 0.75rem; text-align: center;">He will respond in under an hour. He is very eager.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section style="background: var(--cream);">
+  <div class="container">
+    <div class="section-label">Hardware & Add-ons</div>
+    <h2 class="section-title">The bread intelligence ecosystem.<br>Everything costs more than you'd expect.</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+      <div style="background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #E5E7EB;">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔪</div>
+        <h4 style="margin-bottom: 0.25rem; color: var(--brown);">SmartKnife™ Pro</h4>
+        <div style="font-size: 1.5rem; font-weight: bold; color: var(--orange); margin-bottom: 0.5rem;">$799</div>
+        <p style="font-family: Arial; font-size: 0.85rem; color: var(--gray);">A knife with Wi-Fi. USB-C charging. Haptic feedback guides you to the optimal slice angle. Currently drops connection every 15-20 minutes. We are working on this. Without a subscription, it functions as a regular knife for $799. We understand this is a lot for a knife. We are working on that too.</p>
+      </div>
+      <div style="background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #E5E7EB;">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">📡</div>
+        <h4 style="margin-bottom: 0.25rem; color: var(--brown);">IoT Sensor Kit (3-pack)</h4>
+        <div style="font-size: 1.5rem; font-weight: bold; color: var(--orange); margin-bottom: 0.5rem;">$299</div>
+        <p style="font-family: Arial; font-size: 0.85rem; color: var(--gray);">Three sensors for full loaf triangulation. Attaches via food-safe adhesive. Reusable. DO NOT BAKE WITH THE SENSORS ATTACHED. We have said this 47 times across our documentation. Seven of our beta testers baked the sensors. To be fair, we only have eight beta testers. We improved the warning font size after incident 4.</p>
+      </div>
+      <div style="background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #E5E7EB;">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">👨‍💻</div>
+        <h4 style="margin-bottom: 0.25rem; color: var(--brown);">Onboarding: The Chad Call</h4>
+        <div style="font-size: 1.5rem; font-weight: bold; color: var(--orange); margin-bottom: 0.5rem;">$2,500</div>
+        <p style="font-family: Arial; font-size: 0.85rem; color: var(--gray);">A 4-hour Zoom with Chad. Hour 1: product walkthrough. Hour 2: Q&A. Hour 3: Chad talks about bread in general. Hour 4: Chad shows you Leviticus on camera. Leviticus is a sourdough starter. He is fed twice a day. He is doing extremely well. Customers who have booked this call report it as "a lot" but give it 4.2 stars on average.</p>
+      </div>
+      <div style="background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #E5E7EB;">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">📊</div>
+        <h4 style="margin-bottom: 0.25rem; color: var(--brown);">Annual Bread Intelligence Report</h4>
+        <div style="font-size: 1.5rem; font-weight: bold; color: var(--orange); margin-bottom: 0.5rem;">$499/yr</div>
+        <p style="font-family: Arial; font-size: 0.85rem; color: var(--gray);">A 47-page PDF of your year's bread data. Beautiful charts. Compelling graphs. A 2-page section called "What Your Bread Says About You As A Person." One enterprise customer received this report and called Preethi to ask if they needed to respond to it. The answer is no. But Preethi appreciated the call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="container">
+    <div class="section-label">Comparison</div>
+    <h2 class="section-title">AI for Bread vs. just slicing bread.<br>An honest look.</h2>
+
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-family: Arial; font-size: 0.9rem;">
+        <thead>
+          <tr style="border-bottom: 2px solid #E5E7EB;">
+            <th style="text-align: left; padding: 1rem; color: var(--brown);">Dimension</th>
+            <th style="padding: 1rem; color: var(--gray); text-align: center;">Just Slicing the Bread Normally</th>
+            <th style="padding: 1rem; color: var(--orange); text-align: center; background: var(--cream);">BreadGPT (Baguette Tier)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Does the bread get sliced?</td>
+            <td style="padding: 1rem; text-align: center; color: #16A34A;">Yes</td>
+            <td style="padding: 1rem; text-align: center; color: #16A34A; background: var(--cream);">Yes, but with more data</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Monthly cost</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">$0</td>
+            <td style="padding: 1rem; text-align: center; color: var(--orange); background: var(--cream);">$149 + $799 knife</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Do you know how your bread is feeling?</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">No, and you probably don't need to</td>
+            <td style="padding: 1rem; text-align: center; color: #16A34A; background: var(--cream);">Yes. It's guarded.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Staleness prediction</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">Vague sense that it's "a few days"</td>
+            <td style="padding: 1rem; text-align: center; background: var(--cream); color: var(--orange);">Thursday (always Thursday)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Does your bread have a personality type?</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">This had not occurred to you</td>
+            <td style="padding: 1rem; text-align: center; color: #16A34A; background: var(--cream);">INFJ. It was always INFJ.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Push notifications</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">0</td>
+            <td style="padding: 1rem; text-align: center; background: var(--cream); color: var(--orange);">14 per bake cycle</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E5E7EB;">
+            <td style="padding: 1rem; color: var(--brown);">Does a 3D model of your bread's crumb structure exist?</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">No</td>
+            <td style="padding: 1rem; text-align: center; color: #16A34A; background: var(--cream);">Yes. It is beautiful. It tells you nothing.</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem; color: var(--brown);">Overall satisfaction</td>
+            <td style="padding: 1rem; text-align: center; color: var(--gray);">High. You ate the bread.</td>
+            <td style="padding: 1rem; text-align: center; background: var(--cream); color: var(--orange);">Also high, but more complicated.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background: var(--cream);">
+  <div class="container" style="max-width: 720px;">
+    <div class="section-label">Pricing FAQ</div>
+    <h2 class="section-title">Money questions. Honest answers.</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I actually pay you right now?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Not technically. We are in the process of setting up Stripe. Preethi has a tab open for it. In the meantime, if you want to pay us, you can Venmo @chadgrainsworth with the note "BreadGPT Baguette Tier." We will honor that. Chad will send a handwritten receipt.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What's your cancellation policy?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Cancel anytime. We will send a farewell email that includes a message from your last analyzed loaf, written in first person by BreadGPT. It will say something like: "I knew this day would come. I'm not angry. Just disappointed. I was only a 6.9." Several users have re-subscribed due to guilt. We have not changed this. We are considering making it more intense.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is the $799 knife actually worth it?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Without the haptic guidance, it is a $799 knife. Knives typically cost between $20 and $200. You are paying a premium for the Wi-Fi, the accelerometer, the USB-C port, and the fact that we had to hire a firmware engineer for 6 months. That engineer is now leaving to join a better-funded startup. We are hiring a new one. See our Careers page.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What if I bake my sensors again?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        We will send you a replacement at cost ($47/sensor). Please do not bake the sensors. The warning is in the box, on the sensor itself (in orange text), in the onboarding email, in a pop-up in the app before every bake session, and now in this FAQ. If you have baked sensors, it is okay. You are not the first. You are among seven. Welcome.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you offer a nonprofit discount?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Yes. 30% off for nonprofits. We have no nonprofit customers. If you are a nonprofit that is working with bread in some capacity — food banks, community kitchens, artisan bread education — please email us. We will give you the discount and also be extremely moved that you reached out. We will tell people about you at all-hands.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <h2>The bread is waiting.<br>The pricing is ready.<br>The payment processor is almost set up.</h2>
+    <p>Join the waitlist. We'll reach out when Stripe is configured.</p>
+    <a href="index.html#waitlist" class="btn btn-white">Join Waitlist</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">AI for Bread</div>
+      <p class="footer-tagline">Making bread smarter. Setting up Stripe. Leviticus is fed and active.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="product.html">BreadGPT</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Sensor Baking Waiver</a></li>
+        <li><a href="#">Carb Sequoia Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 AI for Bread, Inc. All rights reserved. You can Venmo @chadgrainsworth.</span>
+    <span>San Francisco, CA</span>
+  </div>
+</footer>
+
+<script>
+let isAnnual = false;
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  const dot = document.getElementById('toggle-dot');
+  dot.style.left = isAnnual ? '25px' : '3px';
+  document.getElementById('price-starter').textContent = isAnnual ? '$23' : '$29';
+  document.getElementById('price-pro').textContent = isAnnual ? '$119' : '$149';
+}
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('span');
+  answer.classList.toggle('open');
+  icon.textContent = answer.classList.contains('open') ? '−' : '+';
+}
+</script>
+
+</body>
+</html>

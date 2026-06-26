@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Bread — We Are So Serious About This</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍞</text></svg>">
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; }
+
+    /* ── VIBE HERO ── */
+    .vibe-hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(212,105,30,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(139,60,180,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 60% 20%, rgba(255,160,50,0.15) 0%, transparent 50%),
+        #0c0704;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vibe-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4691E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.6);
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: 0.3px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+    }
+
+    .gradient-headline {
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 900;
+      line-height: 1.0;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fde68a 0%, #f97316 30%, #e8832d 55%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -2px;
+    }
+    .gradient-headline em {
+      font-style: italic;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+      font-weight: 400;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    .hero-buttons {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-glow {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 0.9rem 2.25rem;
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 0 20px rgba(212,105,30,0.5), 0 0 60px rgba(212,105,30,0.2);
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(212,105,30,0.7), 0 0 80px rgba(212,105,30,0.3);
+    }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(212,105,30,0.5), 0 0 60px rgba(212,105,30,0.15); }
+      50% { box-shadow: 0 0 30px rgba(212,105,30,0.7), 0 0 80px rgba(212,105,30,0.25); }
+    }
+
+    .btn-ghost-dark {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.9rem 2.25rem;
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost-dark:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .hero-note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      font-weight: 400;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--orange);
+      overflow: hidden;
+      padding: 0.65rem 0;
+      display: flex;
+    }
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+      gap: 0;
+    }
+    .marquee-track span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.5px;
+      padding: 0 2.5rem;
+      text-transform: uppercase;
+    }
+    .marquee-track span.dot { padding: 0; opacity: 0.5; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── FEATURE CARDS ── */
+    .features-section {
+      padding: 5rem 2rem;
+      background: #0f0804;
+    }
+    .features-section .section-eyebrow {
+      text-align: center;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .features-section h2 {
+      text-align: center;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 3rem;
+      letter-spacing: -1px;
+    }
+    .features-section h2 span {
+      background: linear-gradient(135deg, #fde68a, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .vibe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .vibe-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      position: relative;
+      transition: border-color 0.2s, background 0.2s;
+      overflow: hidden;
+    }
+    .vibe-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), #c084fc, transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .vibe-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(212,105,30,0.3); }
+    .vibe-card:hover::before { opacity: 1; }
+
+    .vibe-card-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .vibe-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .vibe-card-body {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+    .vibe-card-body strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .proof-bar {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.25rem 2rem;
+      text-align: center;
+    }
+    .proof-bar span {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.2);
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+    .proof-bar a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.2s;
+    }
+    .proof-bar a:hover { color: var(--orange); }
+
+    /* ── STATS ── */
+    .stats-dark {
+      background: #0f0804;
+      padding: 4rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stats-dark-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-big {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #fde68a, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label-dark {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .stat-aside {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-dark {
+      background: #0c0704;
+      padding: 5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .testimonial-card-dark {
+      max-width: 680px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+    }
+    .quote-mark {
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--orange);
+      opacity: 0.3;
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      font-family: Georgia, serif;
+    }
+    .testimonial-text-dark {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      font-style: italic;
+      padding-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-author-dark strong {
+      display: block;
+      font-size: 0.9rem;
+      color: white;
+      font-weight: 700;
+    }
+    .testimonial-author-dark span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .stars {
+      color: #fde68a;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── TEAM ── */
+    .team-dark {
+      background: #0f0804;
+      padding: 5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .team-dark h2 {
+      text-align: center;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 900;
+      color: white;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+    }
+    .team-dark .sub {
+      text-align: center;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 3rem;
+    }
+    .team-dark-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .team-card-dark {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .team-avatar-dark {
+      font-size: 2.25rem;
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      background: rgba(212,105,30,0.15);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .team-name { font-weight: 700; color: white; font-size: 0.95rem; margin-bottom: 0.1rem; }
+    .team-title-sm { font-size: 0.72rem; color: var(--orange); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; }
+    .team-bio { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+    /* ── HIRING PUNCHLINE ── */
+    .hiring-punchline {
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.2) 0%, transparent 70%),
+        #050310;
+      padding: 8rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .hiring-punchline h2 {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 1rem;
+    }
+    .hiring-punchline h2 .strike {
+      text-decoration: line-through;
+      color: rgba(255,255,255,0.2);
+    }
+    .hiring-punchline h2 .real {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hiring-punchline p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.4);
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+    .btn-blue-glow {
+      display: inline-block;
+      background: #2563EB;
+      color: white;
+      padding: 1.1rem 3rem;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-decoration: none;
+      box-shadow: 0 0 30px rgba(37,99,235,0.5), 0 0 80px rgba(37,99,235,0.2);
+      animation: blue-glow 3s ease-in-out infinite;
+      transition: transform 0.15s;
+    }
+    .btn-blue-glow:hover { transform: translateY(-3px); }
+    @keyframes blue-glow {
+      0%, 100% { box-shadow: 0 0 30px rgba(37,99,235,0.5), 0 0 80px rgba(37,99,235,0.15); }
+      50% { box-shadow: 0 0 45px rgba(37,99,235,0.7), 0 0 100px rgba(37,99,235,0.25); }
+    }
+    .hiring-punchline .aside {
+      margin-top: 1.25rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── FOOTER DARK ── */
+    footer.dark {
+      background: #030201;
+      color: rgba(255,255,255,0.25);
+      padding: 2.5rem 2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer.dark .logo { color: var(--orange); font-weight: 800; font-size: 1rem; }
+    footer.dark a { color: rgba(255,255,255,0.25); text-decoration: none; }
+    footer.dark a:hover { color: var(--orange); }
+
+    /* ── NAV DARK ── */
+    nav.dark {
+      background: rgba(12,7,4,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    nav.dark .nav-logo { color: var(--orange); }
+    nav.dark .nav-logo span { color: rgba(255,255,255,0.5); }
+    nav.dark .nav-links a { color: rgba(255,255,255,0.45); }
+    nav.dark .nav-links a:hover { color: white; }
+    nav.dark .nav-cta-dark {
+      background: var(--orange);
+      color: white !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body style="background: #0c0704; margin: 0;">
+
+<nav class="dark" style="position: sticky; top: 0; z-index: 100; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;">
+  <a href="index.html" class="nav-logo" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 800; text-decoration: none;">AI <span>for Bread</span></a>
+  <ul class="nav-links" style="list-style: none; display: flex; gap: 2rem; align-items: center; margin: 0; padding: 0;">
+    <li><a href="product.html" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.45); transition: color 0.2s;">Product</a></li>
+    <li><a href="pricing.html" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.45); transition: color 0.2s;">Pricing</a></li>
+    <li><a href="about.html" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.45); transition: color 0.2s;">About</a></li>
+    <li><a href="https://uwblueprint.org/build" class="nav-cta-dark" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none;">Join Our Team</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="vibe-hero">
+  <div class="live-badge">
+    <span class="live-dot"></span>
+    <span id="live-count">2,847</span> people pretending to care about bread
+  </div>
+  <h1 class="gradient-headline">What if bread...<br><em>knew things?</em></h1>
+  <p class="hero-sub">
+    BreadGPT is the world's only AI platform for bread. <strong>Not bread-adjacent.</strong> Not bread-inspired. Bread. We are funded. We have a Notion workspace. Leviticus is doing well.
+  </p>
+  <div class="hero-buttons">
+    <a href="https://uwblueprint.org/build" class="btn-glow">Join Our Team ✦</a>
+    <a href="product.html" class="btn-ghost-dark">See the Product</a>
+  </div>
+  <p class="hero-note">*Pre-revenue. The bread market is $500B. We have $0 of it. This is not a problem, it is a starting point.</p>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>847 variables per slice</span><span class="dot">·</span>
+    <span>variable #612 is "vibes"</span><span class="dot">·</span>
+    <span>staleness: always thursday</span><span class="dot">·</span>
+    <span>your bread is an INFJ</span><span class="dot">·</span>
+    <span>accuracy: 61% (coin flip: 50%)</span><span class="dot">·</span>
+    <span>SmartKnife™ reconnecting...</span><span class="dot">·</span>
+    <span>$0 revenue · extremely good vibes</span><span class="dot">·</span>
+    <span>do not bake the sensors</span><span class="dot">·</span>
+    <span>do not ask about incident 4b</span><span class="dot">·</span>
+    <!-- duplicate for seamless loop -->
+    <span>847 variables per slice</span><span class="dot">·</span>
+    <span>variable #612 is "vibes"</span><span class="dot">·</span>
+    <span>staleness: always thursday</span><span class="dot">·</span>
+    <span>your bread is an INFJ</span><span class="dot">·</span>
+    <span>accuracy: 61% (coin flip: 50%)</span><span class="dot">·</span>
+    <span>SmartKnife™ reconnecting...</span><span class="dot">·</span>
+    <span>$0 revenue · extremely good vibes</span><span class="dot">·</span>
+    <span>do not bake the sensors</span><span class="dot">·</span>
+    <span>do not ask about incident 4b</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features-section">
+  <div class="section-eyebrow">Core Intelligence</div>
+  <h2>Six features for bread.<br><span>You asked for zero of them.</span></h2>
+  <div class="vibe-grid">
+    <div class="vibe-card">
+      <span class="vibe-card-icon">🔪</span>
+      <div class="vibe-card-title">Optimal Slice Angle™</div>
+      <div class="vibe-card-body">We analyze <strong>847 variables</strong> to find the perfect slice angle. The answer is always <strong>87.4°</strong>. A normal person would call this "straight." We call it a breakthrough. There is a 14-page whitepaper. Nobody has read it.</div>
+    </div>
+    <div class="vibe-card">
+      <span class="vibe-card-icon">😐</span>
+      <div class="vibe-card-title">Crust Sentiment Analysis</div>
+      <div class="vibe-card-body">Is your crust happy? Sad? <strong>Guarded?</strong> Ours detects 7 emotions. The most common is "neutral." The rarest is "joyful." We have detected it once, in a brioche in Lyon. We cried.</div>
+    </div>
+    <div class="vibe-card">
+      <span class="vibe-card-icon">📅</span>
+      <div class="vibe-card-title">Staleness Prediction</div>
+      <div class="vibe-card-body">Know exactly when your bread goes stale — down to the minute. After $380K in compute costs, our model answers with remarkable consistency. <strong>The answer is Thursday.</strong> We are looking into it.</div>
+    </div>
+    <div class="vibe-card">
+      <span class="vibe-card-icon">🪪</span>
+      <div class="vibe-card-title">Bread Personality Type</div>
+      <div class="vibe-card-body">Every loaf gets an MBTI type. Your sourdough is almost certainly an <strong>INFJ</strong>. Your baguette is a narcissist. Your white sandwich bread "lacks a clear sense of identity," which our therapist also said about us in 2019.</div>
+    </div>
+    <div class="vibe-card">
+      <span class="vibe-card-icon">🫁</span>
+      <div class="vibe-card-title">3D Crumb Topology</div>
+      <div class="vibe-card-body">Upload a photo. We render a stunning 3D model of your bread's interior air pocket structure. It looks incredible. It contains <strong>zero actionable information.</strong> Our investors call it "the coolest demo they've ever seen."</div>
+    </div>
+    <div class="vibe-card">
+      <span class="vibe-card-icon">🔪</span>
+      <div class="vibe-card-title">SmartKnife™ Pro</div>
+      <div class="vibe-card-body">A <strong>$799 knife with Wi-Fi.</strong> Haptic feedback guides you to 87.4°. Currently drops connection every 15–20 minutes. Without a subscription it functions as a regular knife. For $799. We understand.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="proof-bar" style="background: #0c0704;">
+  <span>As seen in</span>
+  <a href="#">TechCrunch</a>
+  <a href="#">Wired</a>
+  <a href="#">Bakery Business Weekly</a>
+  <a href="#">Chad's LinkedIn <span style="font-size:0.7rem; opacity:0.5;">(4.2K impressions)</span></a>
+  <a href="#">r/Breadit <span style="font-size:0.7rem; opacity:0.5;">(mixed)</span></a>
+</div>
+
+<!-- STATS -->
+<div class="stats-dark">
+  <div class="stats-dark-grid">
+    <div>
+      <div class="stat-big">847</div>
+      <div class="stat-label-dark">Variables per slice</div>
+      <div class="stat-aside">#612 is vibes</div>
+    </div>
+    <div>
+      <div class="stat-big">$0</div>
+      <div class="stat-label-dark">Revenue (current)</div>
+      <div class="stat-aside">Q4 target: also $0, but with a path to $1</div>
+    </div>
+    <div>
+      <div class="stat-big">61%</div>
+      <div class="stat-label-dark">Model accuracy</div>
+      <div class="stat-aside">Coin flip is 50%. We are 11 points better.</div>
+    </div>
+    <div>
+      <div class="stat-big">Thu</div>
+      <div class="stat-label-dark">Predicted staleness</div>
+      <div class="stat-aside">Every loaf. Every time. We're looking into it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-dark">
+  <div class="testimonial-card-dark">
+    <div class="quote-mark">"</div>
+    <div class="stars">★★★★★</div>
+    <p class="testimonial-text-dark">The slide said 'THE FUTURE OF BREAD' in very large letters. There was no follow-up slide explaining what that meant. The next slide was a photograph of bread. I wired $500,000 the following morning.</p>
+    <div class="testimonial-author-dark">
+      <strong>Marcus Thornton-Webb</strong>
+      <span>General Partner, Yeast Capital — Has not asked for an update in 4 months.</span>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-dark">
+  <h2>Three people doing this.</h2>
+  <p class="sub">We have no HR department. Leviticus, our sourdough starter, is the most stable member of the organization.</p>
+  <div class="team-dark-grid">
+    <div class="team-card-dark">
+      <div class="team-avatar-dark">👨‍💼</div>
+      <div>
+        <div class="team-name">Chad Grainsworth</div>
+        <div class="team-title-sm">CEO · Co-founder</div>
+        <div class="team-bio">Stanford CS dropout. TED talk: "The Soul of Bread." 1,240 views, 800 of which are him. Thinks about bread constantly.</div>
+      </div>
+    </div>
+    <div class="team-card-dark">
+      <div class="team-avatar-dark">👩‍🔬</div>
+      <div>
+        <div class="team-name">Preethi Doughrani</div>
+        <div class="team-title-sm">CTO · Co-founder</div>
+        <div class="team-bio">PhD, Computer Vision, MIT. Built BreadGPT, the firmware, the app, and the Slack bot. Also does the bookkeeping. She is always awake at 11 PM.</div>
+      </div>
+    </div>
+    <div class="team-card-dark">
+      <div class="team-avatar-dark">👨‍🍳</div>
+      <div>
+        <div class="team-name">Dmitri Kvasov</div>
+        <div class="team-title-sm">CPO · Co-founder</div>
+        <div class="team-bio">47K Reddit upvotes for a loaf. Two previous startups (both pivoted, both shut down). Caretaker of Leviticus.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HIRING PUNCHLINE -->
+<div class="hiring-punchline">
+  <h2>
+    Tired of building<br>
+    <span class="strike">stupid projects?</span><br>
+    Build <span class="real">real things.</span>
+  </h2>
+  <p>This whole website is a bit. Blueprint is not. We build software that nonprofits actually use. Come work on something that matters.</p>
+  <a href="https://uwblueprint.org/build" class="btn-blue-glow">Join Our Team →</a>
+  <p class="aside">No bread sensors. No SmartKnife™. No crust sentiment analysis. Just real work.</p>
+</div>
+
+<!-- FOOTER -->
+<footer class="dark">
+  <span class="logo">AI for Bread</span>
+  <span>© 2024 AI for Bread, Inc. Several sensors were baked accidentally.</span>
+  <span>
+    <a href="product.html">Product</a> ·
+    <a href="pricing.html">Pricing</a> ·
+    <a href="about.html">About</a> ·
+    <a href="https://uwblueprint.org/build">Join Our Team</a>
+  </span>
+</footer>
+
+<script>
+  // Fake live counter
+  const el = document.getElementById('live-count');
+  let count = 2847;
+  setInterval(() => {
+    count += Math.floor(Math.random() * 3) - 1;
+    el.textContent = count.toLocaleString();
+  }, 3000);
+</script>
+
+</body>
+</html>
