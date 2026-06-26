@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — AI for Bread</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍞</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background: #0c0704; color: #fff; margin: 0; }
+
+    .careers-hero {
+      min-height: 50vh;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(212,105,30,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(139,60,180,0.18) 0%, transparent 55%),
+        #0c0704;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 8rem 2rem 4rem;
+    }
+    .careers-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
+      background: linear-gradient(135deg, #D4691E, #e8a04e, #c77dba);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .careers-hero p { color: rgba(255,255,255,0.5); max-width: 560px; line-height: 1.6; font-size: 1.05rem; }
+
+    .roles-section { max-width: 800px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+    .dept { margin-bottom: 3rem; }
+    .dept-label {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.35); margin-bottom: 1rem; padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .role {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .role-info h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.25rem; }
+    .role-info p { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin: 0; }
+    .role-apply {
+      background: #D4691E; color: #fff; text-decoration: none;
+      padding: 0.5rem 1.3rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700;
+      white-space: nowrap; transition: opacity 0.2s;
+    }
+    .role-apply:hover { opacity: 0.8; }
+
+    .fine-print { text-align: center; color: rgba(255,255,255,0.2); font-size: 0.75rem; padding-bottom: 3rem; }
+  </style>
+</head>
+<body>
+
+<nav class="dark" style="position: sticky; top: 0; z-index: 100; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;">
+  <a href="index.html" class="nav-logo" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 800; text-decoration: none;">AI <span>for Bread</span></a>
+  <ul class="nav-links" style="list-style: none; display: flex; gap: 2rem; align-items: center; margin: 0; padding: 0;">
+    <li><a href="product.html" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.45);">Product</a></li>
+    <li><a href="pricing.html" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.45);">Pricing</a></li>
+    <li><a href="about.html" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.45);">About</a></li>
+    <li><a href="careers.html" class="nav-cta-dark" style="font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; text-decoration: none;">Careers</a></li>
+  </ul>
+</nav>
+
+<div class="careers-hero">
+  <h1>We're hiring people<br>who care about bread.</h1>
+  <p>You don't need to love bread. But it helps. Actually, it doesn't help at all — our product is an AI platform. But we said it on the careers page and now it's part of our employer brand.</p>
+</div>
+
+<div class="roles-section">
+  <div class="dept">
+    <div class="dept-label">Engineering</div>
+    <div class="role">
+      <div class="role-info">
+        <h3>Full-Stack Engineer</h3>
+        <p>Build the platform that monitors 847 bread variables. Debug why variable #612 is always "vibes."</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+    <div class="role">
+      <div class="role-info">
+        <h3>Firmware Engineer</h3>
+        <p>Fix the SmartKnife™ Wi-Fi connection issue. The last engineer left. We understand why.</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+    <div class="role">
+      <div class="role-info">
+        <h3>ML Engineer</h3>
+        <p>Train models that predict bread staleness. Current accuracy: 61%. Current prediction: Thursday.</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+  </div>
+
+  <div class="dept">
+    <div class="dept-label">Product Design</div>
+    <div class="role">
+      <div class="role-info">
+        <h3>Product Designer</h3>
+        <p>Design dashboards for bread analytics. Make a pie chart about bread that doesn't look like a pie.</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+    <div class="role">
+      <div class="role-info">
+        <h3>UX Researcher</h3>
+        <p>Figure out what users actually want from a bread intelligence platform. We genuinely don't know.</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+  </div>
+
+  <div class="dept">
+    <div class="dept-label">Community & Content</div>
+    <div class="role">
+      <div class="role-info">
+        <h3>Content Strategist</h3>
+        <p>Write thought leadership about bread AI. Make "AI for Bread" sound like a category, not a mistake.</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+    <div class="role">
+      <div class="role-info">
+        <h3>Community Manager</h3>
+        <p>Grow our community of 2,854 people pretending to care about bread. Engage them. We believe in you.</p>
+      </div>
+      <a href="https://uwblueprint.org/build" class="role-apply">Apply →</a>
+    </div>
+  </div>
+</div>
+
+<p class="fine-print">All positions are remote. We offer competitive salaries, equity, and unlimited bread. The bread is from a grocery store. It is not smart bread.</p>
+
+</body>
+</html>
